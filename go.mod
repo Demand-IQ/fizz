@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/Pallinder/go-randomdata v1.2.0
-	github.com/demand-iq/gadgeto v0.0.0-20230526165537-3f4fe7ed1882
+	github.com/demand-iq/gadgeto v0.12.1
 	github.com/gin-contrib/cors v1.3.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/gofrs/uuid v3.2.0+incompatible

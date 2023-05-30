@@ -21,8 +21,8 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/demand-iq/gadgeto v0.0.0-20230526165537-3f4fe7ed1882 h1:TODtELQL3j8rWT3hXh4Qg2ue2vhj10sOWHjdmxqjhcc=
-github.com/demand-iq/gadgeto v0.0.0-20230526165537-3f4fe7ed1882/go.mod h1:u2sJWRKuyzUKEbjvORuH/IYdZPn5JyG3u2t0P+moR1w=
+github.com/demand-iq/gadgeto v0.12.1 h1:rei142AN9+QaxdOBTVrfsWM9DI+8xtC9d88sxbuFLPw=
+github.com/demand-iq/gadgeto v0.12.1/go.mod h1:u2sJWRKuyzUKEbjvORuH/IYdZPn5JyG3u2t0P+moR1w=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/dgryski/go-sip13 v0.0.0-20181026042036-e10d5fee7954/go.mod h1:vAd38F8PWV+bWy6jNmig1y/TA+kYO4g3RSRF0IAv0no=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
