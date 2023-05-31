@@ -35,8 +35,10 @@ var (
 // mediaTags maps media types to well-known
 // struct tags used for marshaling.
 var mediaTags = map[string]string{
-	"application/json": "json",
-	"application/xml":  "xml",
+	"application/json":                  "json",
+	"application/xml":                   "xml",
+	"multipart/form-data":               "form",
+	"application/x-www-form-urlencoded": "form",
 }
 
 // Generator is an OpenAPI 3 generator.
