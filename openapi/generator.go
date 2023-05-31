@@ -1063,7 +1063,7 @@ func (g *Generator) flattenStructSchema(t, parent reflect.Type, schema *Schema, 
 			schema.Required = append(schema.Required, fname)
 			sort.Strings(schema.Required)
 		}
-		sfs := g.newSchemaFromStructField(f, required, fname, t, mediaTag)
+		sfs := g.newSchemaFromStructField(f, required, fname, t, mediaType)
 		if sfs != nil {
 			schema.Properties[fname] = sfs
 		}
