@@ -263,7 +263,11 @@ func (g *Generator) AddOperation(path, method, tag string, requestMediaType, res
 	// Create a new operation and set it
 	// to the according method of the PathItem.
 	if info != nil {
-		op.ID = info.ID
+		if !g.fullNames {
+			op.ID = strings.Split(info.ID, "-")[0]
+		} else {
+			op.ID = info.ID
+		}
 		op.Summary = info.Summary
 		op.Description = info.Description
 		op.Deprecated = info.Deprecated
@@ -464,7 +468,7 @@ func (g *Generator) setOperationParams(op *Operation, t, parent reflect.Type, al
 		}
 		sch := op.RequestBody.Content[mt].Schema
 		if sch != nil {
-			name := strings.Title(op.ID) + "Request"
+			name := strings.Title(strings.Split(op.ID, "-")[0]) + "Request"
 			g.api.Components.Schemas[name] = sch
 			op.RequestBody.Content[mt].Schema = &SchemaOrRef{Reference: &Reference{
 				Ref: componentsSchemaPath + name,
@@ -1077,6 +1081,7 @@ func (g *Generator) flattenStructSchema(t, parent reflect.Type, schema *Schema, 
 // is required. The information is read from the field
 // tag 'binding'.
 func (g *Generator) isStructFieldRequired(sf reflect.StructField) bool {
+	// Checks for validator tag. IE "validate"
 	if t, ok := sf.Tag.Lookup(g.config.ValidatorTag); ok {
 		options := strings.Split(t, ",")
 		for _, o := range options {
@@ -1086,12 +1091,23 @@ func (g *Generator) isStructFieldRequired(sf reflect.StructField) bool {
 			if o == "dive" || o == "keys" {
 				return false
 			}
+			// Indicates that the field is optional
+			if o == "optional" {
+				return false
+			}
+			// if required if found return true
 			if o == "required" {
 				return true
 			}
 		}
+		// Checks kind for optional
+		if sf.Type.Kind() == reflect.Pointer {
+			return false
+		}
+
 	}
-	return false
+
+	return true
 }
 
 // resolveSchema returns either the inlined schema
@@ -1161,6 +1177,9 @@ func (g *Generator) typeName(t reflect.Type) string {
 	if len(typeParam) > 0 {
 		lastIndex := strings.LastIndex(typeParam, "/")
 		typeParam = "-" + typeParam[lastIndex+1:]
+		if !g.fullNames {
+			typeParam = strings.Split(typeParam, ".")[1]
+		}
 	}
 
 	sp := strings.Index(name, ".")

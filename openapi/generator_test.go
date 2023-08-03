@@ -604,7 +604,7 @@ func TestTypeName(t *testing.T) {
 	// Unnamed type.
 	assert.Equal(t, "", g.typeName(rt(struct{}{})))
 	// generic type
-	assert.Equal(t, "Foo-openapi.X", g.typeName(rt(Foo[X]{})))
+	assert.Equal(t, "FooX", g.typeName(rt(Foo[X]{})))
 }
 
 // TestSetInfo tests that the informations
