@@ -1091,23 +1091,12 @@ func (g *Generator) isStructFieldRequired(sf reflect.StructField) bool {
 			if o == "dive" || o == "keys" {
 				return false
 			}
-			// Indicates that the field is optional
-			if o == "optional" {
-				return false
-			}
-			// if required if found return true
 			if o == "required" {
 				return true
 			}
 		}
-		// Checks kind for optional
-		if sf.Type.Kind() == reflect.Pointer {
-			return false
-		}
-
 	}
-
-	return true
+	return false
 }
 
 // resolveSchema returns either the inlined schema
