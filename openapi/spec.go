@@ -404,7 +404,7 @@ type OAuthFlow struct {
 	AuthorizationURL string            `json:"authorizationUrl,omitempty" yaml:"authorizationUrl,omitempty"`
 	TokenURL         string            `json:"tokenUrl,omitempty" yaml:"tokenUrl,omitempty"`
 	RefreshURL       string            `json:"refreshUrl,omitempty" yaml:"refreshUrl,omitempty"`
-	Scopes           map[string]string `json:"scopes,omitempty" yaml:"scopes,omitempty"`
+	Scopes           map[string]string `json:"scopes" yaml:"scopes"`
 }
 
 // MarshalYAML implements yaml.Marshaler for OAuthFlow.
